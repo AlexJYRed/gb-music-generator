@@ -52,14 +52,10 @@ mod_file_request.onload = function(event){
 		let grid = [];
 		let temp = [];
 		for(let i = 0; i < arr.length; i++){
-			if(arr[i]!=0){
-				if(i==0 || arr[i-1] == 0){
-					temp = [];
-				}
-				temp.push(arr[i]);
-			}else if(i!=0){
+			if(i%16==0&&i!=0){
 				grid.push(temp);
 			}
+			temp.push(arr[i]);
 		}
 		// For random numbers, try Math.random()
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
