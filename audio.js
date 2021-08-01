@@ -52,16 +52,18 @@ mod_file_request.onload = function(event){
 		let grid = [];
 		let temp = [];
 		for(let i = 0; i < arr.length; i++){
-			if(i%16==0&&i!=0){
+			if(i%16==0){
 				grid.push(temp);
-			}
-			temp.push(arr[i]);
+				temp = arr[i];
+				//temp[0] = arr[i];
+			}else temp.push(arr[i]);
 		}
 		// For random numbers, try Math.random()
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 		// 3 display the new file data
-		console.log(grid.toString);
+
+		console.log(grid);
 		// 4. we won't write it out to disk yet, because that's actually going to be a separate part of the system
 		// Though if you really want to write it out to a file to listen to, you can.
 	}
