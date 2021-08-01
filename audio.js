@@ -44,9 +44,27 @@ mod_file_request.onload = function(event){
 		console.log(hex);
 
 		// 1. locate the music pattern data
+<<<<<<< Updated upstream
 
+=======
+		let arr = hex.split(' ').map((e) => {return parseInt(e,16)});
+		//Alex notes: look thru byte data until you find start numbers of tracks, then get that data in an easily accessible format
+		// Loop thru array to find the start of it, then loop over it again to put everything in a separate 2-dimensional array
+>>>>>>> Stashed changes
 		// 2. edit the music pattern data
-
+		let ind = 0;
+		let grid = [];
+		let temp = [];
+		for(let i = 0; i < arr.length; i++){
+			if(arr[i]!=0){
+				if(i==0 || arr[i-1] == 0){
+					temp = [];
+				}
+				temp.push(arr[i]);
+			}else if(i!=0){
+				grid.push(temp);
+			}
+		}
 		// For random numbers, try Math.random()
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
