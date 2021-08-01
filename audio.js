@@ -44,13 +44,9 @@ mod_file_request.onload = function(event){
 		console.log(hex);
 
 		// 1. locate the music pattern data
-<<<<<<< Updated upstream
-
-=======
 		let arr = hex.split(' ').map((e) => {return parseInt(e,16)});
 		//Alex notes: look thru byte data until you find start numbers of tracks, then get that data in an easily accessible format
 		// Loop thru array to find the start of it, then loop over it again to put everything in a separate 2-dimensional array
->>>>>>> Stashed changes
 		// 2. edit the music pattern data
 		let ind = 0;
 		let grid = [];
