@@ -50,15 +50,22 @@ mod_file_request.onload = function(event){
 		// 2. edit the music pattern data
 		let ind = 0;
 		let grid = [];
-		let temp = [];
+		let temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 		for(let i = 0; i < arr.length; i++){
+			
 			if(i%16==0){
 				if(i!=0){
 					grid.push(temp);
-					temp = [];
+					temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 				}
-				temp[0] = arr[i];
-			}else temp.push(arr[i]);
+			}
+			let a = arr[i];
+			if(a!=0){
+				let n2 = Math.floor(Math.random() * 3);
+				if(n2==0)a--;
+				if(n2==2)a++;
+			}
+			else temp[i%16] = a;
 		}
 		// For random numbers, try Math.random()
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
