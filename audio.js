@@ -43,11 +43,8 @@ mod_file_request.onload = function(event){
 		// Print the data to the console.
 		console.log(hex);
 
-		// 1. locate the music pattern data
+		// 1. locate the music pattern data and turn it into a 1D array of base 10 numbers
 		let arr = hex.split(' ').map((e) => {return parseInt(e,16)});
-		//Alex notes: look thru byte data until you find start numbers of tracks, then get that data in an easily accessible format
-		// Loop thru array to find the start of it, then loop over it again to put everything in a separate 2-dimensional array
-		// 2. edit the music pattern data
 		let ind = 0;
 		let grid = [];
 		let temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -62,9 +59,12 @@ mod_file_request.onload = function(event){
 			}
 			let a = arr[i];
 			if(a!=0){
-				a+=rowChange-1;
-				let singleChange = Math.floor(Math.random() * 3);
-				a+=singleChange-1;
+				//Changes decimal music data by 1, either modifying an entire row the same way or doing each column individually
+				if(rowChange!=1) a+=rowChange-1;
+				else{
+					let singleChange = Math.floor(Math.random() * 3);
+					a+=singleChange-1;
+				}
 			}
 			let i2 = i%16;
 			if(i2==16) i2=0;
