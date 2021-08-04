@@ -51,22 +51,24 @@ mod_file_request.onload = function(event){
 		let ind = 0;
 		let grid = [];
 		let temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-		let n1 = 0;
+		let rowChange = 0;
 		for(let i = 0; i < arr.length; i++){
 			if(i%16==0){
 				if(i!=0){
 					grid.push(temp);
 				}
-				n1 = Math.floor(Math.random()*3);
+				rowChange = Math.floor(Math.random()*3);
 				temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 			}
 			let a = arr[i];
 			if(a!=0){
-				a+=n1-1;
-				let n2 = Math.floor(Math.random() * 3);
-				a+=n2-1;
+				a+=rowChange-1;
+				let singleChange = Math.floor(Math.random() * 3);
+				a+=singleChange-1;
 			}
-			temp[i%16] = a;
+			let i2 = i%16;
+			if(i2==16) i2=0;
+			temp[i2] = a;
 		}
 		// For random numbers, try Math.random()
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
