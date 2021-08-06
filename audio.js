@@ -75,8 +75,6 @@ mod_file_request.onload = function(event){
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 		// 3 display the new file data
-		console.log(arr[16]);
-		console.log(arr[33]);
 		console.log(grid);
 		// 4. we won't write it out to disk yet, because that's actually going to be a separate part of the system
 		// Though if you really want to write it out to a file to listen to, you can.
