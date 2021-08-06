@@ -44,7 +44,7 @@ mod_file_request.onload = function(event){
 		console.log(hex);
 
 		// 1. locate the music pattern data and turn it into a 1D array of base 10 numbers
-		let arr = hex.split(' ').map((e) => {return parseInt(e,16)});
+		let arr = hex.replace(/<br>\n/g,"").split(' ').map((e) => {return parseInt(e,16)});
 	//	console.log(arr);
 		let ind = 0;
 		let grid = [];
@@ -68,7 +68,6 @@ mod_file_request.onload = function(event){
 				}
 			}
 			let i2 = i%16;
-			if(i2==16) i2=0;
 			temp[i2] = a;
 		}
 		// For random numbers, try Math.random()
